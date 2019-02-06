@@ -1,0 +1,22 @@
+extends  ../layout
+
+block content
+    .container
+        .row
+            form.form-horizontal(method='post', action='/admin/product/new')
+                input(type='hidden', name='product[_id]', value=product._id)
+                .form-group
+                    label.col-sm-5.control-label(for='inputName') 产品名称
+                    .col-sm-10
+                        input#inputName.form-control(type='text', name='product[name]', value=product.name)
+                .form-group
+                    label.col-sm-5.control-label(for='inputBrand') 品牌
+                    .col-sm-10
+                        input#inputBrand.form-control(type='text', name='product[brand]', value=product.brand)
+                .form-group
+                    label.col-sm-5.control-label(for='inputFunction') 功效
+                    .col-sm-10
+                        input#inputFunction.form-control(type='text', name='product[effect]', value=product.effect)
+                .form-group
+                    .col-sm-offset-2.col-sm-10
+                    button.btn.btn-default(type='submit') 添加

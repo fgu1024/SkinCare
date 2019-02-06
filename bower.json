@@ -1,0 +1,25 @@
+{
+  "name": "Website",
+  "description": "website test",
+  "main": "",
+  "keywords": [
+    "test"
+  ],
+  "authors": [
+    "fg"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.2.1",
+    "jquery": "^3.3.1"
+  }
+}

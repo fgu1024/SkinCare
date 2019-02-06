@@ -1,0 +1,15 @@
+extends  ../layout
+
+block content
+    .container
+        .row
+            .col-md-7
+                img(src=product.poster)
+            .col-md-5
+                dl.dl-horizontal
+                    dt 名字
+                    dd #{product.name}
+                    dt 品牌
+                    dd #{product.brand}
+                    dt 功效
+                    dd #{product.effect}

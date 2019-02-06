@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+    .container
+        .row
+            table.table.table-hover.table-bordered
+                thead
+                    tr
+                        th 产品名称
+                        th 品牌
+                        th 功效
+                        th 创建时间
+                        th 查看
+                        th 更新
+                        th 删除
+                tbody
+                    each item in products
+                        tr(class='item-id-'+item._id)
+                            td #{item.name}
+                            td #{item.brand}
+                            td #{item.effect}
+                            td #{moment(item.meta.updateAt).format('MM/DD/YYYY')}
+                            td: a(target='_blank', href='../product/'+item._id) 查看
+                            td: a(target='_blank', href='../admin/update/'+item._id) 修改
+                            td
+                                button.btn.btn-danger.del(type='button', data-id=item._id) 删除
+
+    script(src='/js/admin.js')
