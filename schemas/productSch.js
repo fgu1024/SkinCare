@@ -4,7 +4,27 @@ var ProductSchema = new mongoose.Schema({
     name: String,
     brand: String,
     effect: String,
+    season: String,
+    status: String,
     poster: String,
+    shares: [String],
+    order: {
+        oDate: Date,
+        platform: String,
+        store: String,
+        volume: Number,
+        quantity: Number,
+        price: Number,
+        freight_charge: Number,
+        tax: Number,
+        total: Number
+    },
+    usage_record: {
+        start_date: Date,
+        end_date: Date,
+        usage: String,
+        feeling: String
+    },
     meta: {
         createAt: {
             type: Date,

@@ -53,7 +53,7 @@ app.get('/product/:id', function (req, res) {
 
     Product.findById(id, function (err, product) {
         res.render('detail', {
-            title: 'Skin Care Product' + product.name,
+            title: product.name,
             product: product
         })
     });
@@ -119,7 +119,7 @@ app.get('/admin/update/:id', function (req, res) {
 //admin page
 app.get('/admin', function (req, res) {
     res.render('admin', {
-        title: 'Skin Care Product管理页',
+        title: 'Add Product',
         product: {}
     })
 });

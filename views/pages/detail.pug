@@ -3,13 +3,32 @@ extends  ../layout
 block content
     .container
         .row
-            .col-md-7
+            .col-md-8
                 img(src=product.poster)
-            .col-md-5
-                dl.dl-horizontal
-                    dt 名字
-                    dd #{product.name}
-                    dt 品牌
-                    dd #{product.brand}
-                    dt 功效
-                    dd #{product.effect}
+            .col-md-4
+                ul.list-group
+                    li.list-group-item
+                        div.row
+                            div.col-4
+                                h5 名字
+                            div.col-8 #{product.name}
+                    li.list-group-item
+                        div.row
+                            div.col-4
+                                h5 品牌
+                            div.col-8 #{product.brand}
+                    li.list-group-item
+                        div.row
+                            div.col-4
+                                h5 功效
+                            div.col-8 #{product.effect}
+                    li.list-group-item
+                        div.row
+                            div.col-4
+                                h5 适用季节
+                            div.col-8 #{product.season}
+                    li.list-group-item
+                        div.row
+                            div.col-4
+                                h5 状态
+                            div.col-8 #{product.status}

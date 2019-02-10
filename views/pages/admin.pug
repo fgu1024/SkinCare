@@ -14,9 +14,24 @@ block content
                     .col-sm-10
                         input#inputBrand.form-control(type='text', name='product[brand]', value=product.brand)
                 .form-group
-                    label.col-sm-5.control-label(for='inputFunction') 功效
+                    label.col-sm-5.control-label(for='inputEffect') 功效
                     .col-sm-10
-                        input#inputFunction.form-control(type='text', name='product[effect]', value=product.effect)
+                        input#inputEffect.form-control(type='text', name='product[effect]', value=product.effect)
+                .form-group
+                    label.col-sm-5.control-label(for='inputSeason') 适用季节
+                    .col-sm-10
+                        input#inputSeason.form-control(type='text', name='product[season]', value=product.season)
+                .form-group
+                    label.col-sm-5.control-label(for='selectStatus') 状态
+                    .col-sm-10
+                        select#selectStatus.custom-select(name='product[status]')
+                            option(value) In Stock
+                            option Wanted
+                            option Rebuy
+                .form-group
+                    label.col-sm-5.control-label(for='inputShares') 功课
+                    .col-sm-10
+                        input#inputShares.form-control(type='text', name='product[shares]', value=product.shares)
                 .form-group
                     .col-sm-offset-2.col-sm-10
-                    button.btn.btn-default(type='submit') 添加
+                    button.btn.btn-primary(type='submit') 添加
