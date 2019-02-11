@@ -18,6 +18,13 @@ block content
                     .col-sm-10
                         input#inputEffect.form-control(type='text', name='product[effect]', value=product.effect)
                 .form-group
+                    label.col-sm-5.control-label(for='selectType') 类型
+                    .col-sm-10
+                        select#selectType.custom-select(name='product[type]')
+                            option Lotion
+                            option Serum
+                            option Eye Cream
+                .form-group
                     label.col-sm-5.control-label(for='inputSeason') 适用季节
                     .col-sm-10
                         input#inputSeason.form-control(type='text', name='product[season]', value=product.season)

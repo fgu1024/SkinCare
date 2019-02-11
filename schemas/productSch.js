@@ -4,6 +4,7 @@ var ProductSchema = new mongoose.Schema({
     name: String,
     brand: String,
     effect: String,
+    type: String,
     season: String,
     status: String,
     poster: String,
