@@ -1,9 +1,9 @@
 extends  ../layout
 
 block content
-    .container
-        .row
-            form.form-horizontal(method='post', action='/admin/product/new')
+    .row
+        .col-md-8
+            form(method='post', action='/admin/product/new')
                 input(type='hidden', name='product[_id]', value=product._id)
                 .form-group
                     label.col-sm-5.control-label(for='inputName') 产品名称
@@ -21,9 +21,10 @@ block content
                     label.col-sm-5.control-label(for='selectType') 类型
                     .col-sm-10
                         select#selectType.custom-select(name='product[type]')
-                            option Lotion
-                            option Serum
-                            option Eye Cream
+                            option
+                            option 乳液
+                            option 精华
+                            option 眼霜
                 .form-group
                     label.col-sm-5.control-label(for='inputSeason') 适用季节
                     .col-sm-10
@@ -32,13 +33,14 @@ block content
                     label.col-sm-5.control-label(for='selectStatus') 状态
                     .col-sm-10
                         select#selectStatus.custom-select(name='product[status]')
-                            option(value) In Stock
-                            option Wanted
-                            option Rebuy
+                            option
+                            option 有库存
+                            option 种草
+                            option 回购
                 .form-group
                     label.col-sm-5.control-label(for='inputShares') 功课
                     .col-sm-10
                         input#inputShares.form-control(type='text', name='product[shares]', value=product.shares)
-                .form-group
-                    .col-sm-offset-2.col-sm-10
-                    button.btn.btn-primary(type='submit') 添加
+                button.btn.btn-primary(type='submit') 添加
+        .col-md-4
+            button.btn.btn-lg.btn-primary(type='submit') 上传图片
