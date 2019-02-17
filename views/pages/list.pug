@@ -3,7 +3,7 @@ extends ../layout
 block content
     .container
         .row
-            a.btn.btn-primary(href='/admin') 添加
+            a.btn.btn-primary(href='/product/create') 添加
         .row
             table.table.table-hover.table-bordered
                 thead
@@ -23,7 +23,7 @@ block content
                             td #{item.effect}
                             td #{moment(item.meta.updateAt).format('MM/DD/YYYY')}
                             td: a(target='_blank', href='../product/'+item._id) 查看
-                            td: a(target='_blank', href='../admin/update/'+item._id) 修改
+                            td: a(target='_blank', href='../product/update/'+item._id) 修改
                             td
                                 button.btn.btn-danger.del(type='button', data-id=item._id) 删除
 
