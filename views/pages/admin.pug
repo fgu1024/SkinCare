@@ -3,24 +3,24 @@ extends  ../layout
 block content
     .row
         .col-md-8
-            form(method='post', action='/product/create')
-                input(type='hidden', name='product[_id]', value=product._id)
+            form(method='post', action='/product/create' encType="multipart/form-data")
+                input(type='hidden', name='_id', value=product._id)
                 .form-group
                     label.col-sm-5.control-label(for='inputName') 产品名称
                     .col-sm-10
-                        input#inputName.form-control(type='text', name='product[name]', value=product.name)
+                        input#inputName.form-control(type='text', name='name', value=product.name)
                 .form-group
                     label.col-sm-5.control-label(for='inputBrand') 品牌
                     .col-sm-10
-                        input#inputBrand.form-control(type='text', name='product[brand]', value=product.brand)
+                        input#inputBrand.form-control(type='text', name='brand', value=product.brand)
                 .form-group
                     label.col-sm-5.control-label(for='inputEffect') 功效
                     .col-sm-10
-                        input#inputEffect.form-control(type='text', name='product[effect]', value=product.effect)
+                        input#inputEffect.form-control(type='text', name='effect', value=product.effect)
                 .form-group
                     label.col-sm-5.control-label(for='selectType') 类型
                     .col-sm-10
-                        select#selectType.custom-select(name='product[type]')
+                        select#selectType.custom-select(name='type')
                             option
                             option 乳液
                             option 精华
@@ -28,24 +28,24 @@ block content
                 .form-group
                     label.col-sm-5.control-label(for='inputSeason') 适用季节
                     .col-sm-10
-                        input#inputSeason.form-control(type='text', name='product[season]', value=product.season)
+                        input#inputSeason.form-control(type='text', name='season', value=product.season)
                 .form-group
                     label.col-sm-5.control-label(for='selectStatus') 状态
                     .col-sm-10
-                        select#selectStatus.custom-select(name='product[status]')
+                        select#selectStatus.custom-select(name='status')
                             option
                             option 有库存
                             option 种草
                             option 回购
-                //.form-group
-                //    label.col-sm-5.control-label(for='inputShares') 功课
-                //    .col-sm-10
-                //        input#inputShares.form-control(type='file', name='shares', value=product.shares)
-                button.btn.btn-primary(type='submit') 添加
-        .col-md-4
-            form(method='post', action='/product/uploadShares' encType="multipart/form-data")
                 .form-group
                     label.col-sm-5.control-label(for='inputShares') 功课
                     .col-sm-10
                         input#inputShares.form-control(type='file', name='shares', value=product.shares)
+                button.btn.btn-primary(type='submit') 添加
+        //.col-md-4
+        //    form(method='post', action='/product/uploadShares' encType="multipart/form-data")
+        //        .form-group
+        //            label.col-sm-5.control-label(for='inputShares') 功课
+        //            .col-sm-10
+        //                input#inputShares.form-control(type='file', name='shares', value=product.shares)
                 button.btn.btn-lg.btn-primary(href='/product/uploadShares') 上传功课

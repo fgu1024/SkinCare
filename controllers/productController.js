@@ -2,9 +2,20 @@ var Product = require('../model/productModel');
 var _ = require('underscore');
 
 exports.createOrUpdateProduct = function (req, res) {
-    var productObj = req.body.product;
+    var productObj = req.body;
     var id = productObj._id;
     var _product;
+
+    var pic = req.files.shares;
+    var picName = pic.name.replace('.', '_'+Date.now()+'.');
+    pic.mv('./public/uploadPic/' + picName, function (err) {
+        if (err) {
+            return res.status(500).send(err);
+        }
+    });
+
+    productObj.shares = [];
+    productObj.shares.push(picName);
 
     if (id !== undefined && id !== ""){ //This is an update
         Product.findById(id, function (err, product) {
@@ -26,7 +37,11 @@ exports.createOrUpdateProduct = function (req, res) {
             name: productObj.name,
             brand: productObj.brand,
             effect: productObj.effect,
-            poster: productObj.poster
+            poster: productObj.poster,
+            type: productObj.type,
+            season: productObj.season,
+            status: productObj.status,
+            shares: productObj.shares,
         });
 
         _product.save(function (err, product) {
@@ -55,14 +70,14 @@ exports.deleteProduct = function(req, res){
     }
 };
 
+//DNU - Integrate in createOrUpdate
 exports.uploadShares = function (req, res) {
     var pic = req.files.shares;
-    pic.mv('./public/uploadPic/123.jpg', function (err) {
+    var picName = pic.name.replace('.', '_'+Date.now()+'.');
+    pic.mv('./public/uploadPic/' + picName, function (err) {
         if (err) {
             return res.status(500).send(err);
         }
-
-        res.redirect('back')
     })
 };
 
