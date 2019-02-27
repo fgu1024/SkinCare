@@ -7,15 +7,21 @@ exports.createOrUpdateProduct = function (req, res) {
     var _product;
 
     var pic = req.files.shares;
-    var picName = pic.name.replace('.', '_'+Date.now()+'.');
-    pic.mv('./public/uploadPic/' + picName, function (err) {
-        if (err) {
-            return res.status(500).send(err);
-        }
-    });
+    var picName = "";
+    if (pic !== undefined && pic !== ""){
+        picName = pic.name.replace('.', '_'+Date.now()+'.');
+        pic.mv('./public/uploadPic/' + picName, function (err) {
+            if (err) {
+                return res.status(500).send(err);
+            }
+        });
 
-    productObj.shares = [];
-    productObj.shares.push(picName);
+        productObj.shares = [];
+        productObj.shares.push(picName);
+    }
+
+
+
 
     if (id !== undefined && id !== ""){ //This is an update
         Product.findById(id, function (err, product) {
@@ -63,7 +69,8 @@ exports.deleteProduct = function(req, res){
                 console.log();
             } else{
                 console.log('Delete');
-                res.redirect('product/list')
+                res.send({code:200})
+                // res.redirect('/product/list')
             }
         })
 

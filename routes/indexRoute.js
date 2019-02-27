@@ -30,7 +30,7 @@ router.get('/product/list', function (req, res) {
 
 //Add Product Page
 router.get('/product/create', function (req, res) {
-    res.render('admin', {
+    res.render('create', {
         title: 'Add Product',
         product: {}
     })
@@ -59,7 +59,7 @@ router.get('/product/update/:id', function (req, res) {
             if (err){
                 console.log(err);
             } else {
-                res.render('admin', {
+                res.render('create', {
                     title: 'admin update',
                     product: product
                 })
