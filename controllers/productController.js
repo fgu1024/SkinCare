@@ -4,8 +4,8 @@ var _ = require('underscore');
 exports.createOrUpdateProduct = function (req, res) {
     var productObj = req.body;
     var id = productObj._id;
-    var _product;
 
+    //Save share pictures to productObj.shares
     var pic = req.files.shares;
     var picName = "";
     if (pic !== undefined && pic !== ""){
@@ -20,9 +20,8 @@ exports.createOrUpdateProduct = function (req, res) {
         productObj.shares.push(picName);
     }
 
-
-
-
+    //Save all data to _product
+    var _product;
     if (id !== undefined && id !== ""){ //This is an update
         Product.findById(id, function (err, product) {
             if (err){

@@ -20,13 +20,6 @@ $(function () {
                 console.log(res.message)
             }
         })
-        // .done(function (results) {
-        //     if(results.success === 1){
-        //         if (tr.length > 0){
-        //             tr.remove()
-        //         }
-        //         window.location.reload(false)
-        //     }
-        // })
+
     })
 });
